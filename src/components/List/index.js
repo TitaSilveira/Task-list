@@ -1,6 +1,5 @@
 import React from "react";
-import { HiOutlinePencil } from 'react-icons/hi2';
-import { HiOutlineTrash } from 'react-icons/hi2';
+import { TfiMarkerAlt, TfiTrash } from "react-icons/tfi";
 
 
 const List = (props) => {
@@ -13,12 +12,12 @@ const List = (props) => {
                 return(
                    <li key={el}>{el}
                     <span>
-                        <HiOutlinePencil 
+                        <TfiMarkerAlt 
                             className="edit"
                             onClick={(e) => handleEdit(e, index)}
                         />
 
-                        <HiOutlineTrash 
+                        <TfiTrash
                             className="delete"
                             onClick={(e) => handleDelete(e, index)}
                         />
