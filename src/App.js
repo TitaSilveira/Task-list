@@ -10,7 +10,7 @@ function App() {
 
   const onChangeList = (tarefa) => {
 
-    if(tarefas.indexOf(tarefa) !== -1) return;
+    if(tarefas.indexOf(tarefa) !== -1 || !tarefa) return;
   
     const novasTarefas = [...tarefas];
 
