@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TfiPlus } from "react-icons/tfi";
+import './Form.css';
 
 const Form = (props) => {
     // const[tarefa, setTarefa] = useState("")
@@ -17,8 +18,13 @@ const Form = (props) => {
 
     return(
     <form onSubmit={submitHandle}>
-        <input type="text" placeholder="Digite sua tarefa" onChange={changeHandle} value={novaTarefa}></input>
-        <button><TfiPlus /></button>
+        <input type="text" 
+        placeholder="Adicione..." 
+        onChange={changeHandle} 
+        value={novaTarefa}
+        className='input-tarefa'
+        ></input>
+        <button className="btn-tarefa"><TfiPlus /></button>
     </form>
      
     )

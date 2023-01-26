@@ -50,11 +50,11 @@ function App() {
   }, [])
 
   return (
-    <>
-    <h1>O que você planeja para hoje?</h1>
+    <div className='container'>
+      <h1>O que você planeja para hoje?</h1>
       <Form onList={onChangeList} setNovaTarefa={setNovaTarefa} novaTarefa={novaTarefa}/>
       <List tarefas={tarefas} handleDelete={handleDelete} handleEdit={handleEdit} />
-    </>
+    </div>
   );
 }
 

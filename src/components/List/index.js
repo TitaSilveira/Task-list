@@ -1,5 +1,6 @@
 import React from "react";
 import { TfiMarkerAlt, TfiTrash } from "react-icons/tfi";
+import './List.css';
 
 
 const List = (props) => {
@@ -7,11 +8,11 @@ const List = (props) => {
 
     
     return(
-        <ul className="tarefas">
+        <div className="lista">
             {tarefas.map((el, index) => {
                 return(
-                   <li key={el}>{el}
-                    <span>
+                   <div className="lista-tarefa" key={el}>{el}
+                    <div className="lista-tarefas-icons">
                         <TfiMarkerAlt 
                             className="edit"
                             onClick={(e) => handleEdit(e, index)}
@@ -21,11 +22,11 @@ const List = (props) => {
                             className="delete"
                             onClick={(e) => handleDelete(e, index)}
                         />
-                    </span>
-                </li>  
+                    </div>
+                </div>  
                 )
             })}
-        </ul>
+        </div>
     )
     //         { tarefas.map((el, index) => {
     //             return(

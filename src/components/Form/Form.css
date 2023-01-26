@@ -1,0 +1,25 @@
+.input-tarefa {
+    width: 150px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 20px;
+    transition: width 0.4s ease-in-out;
+}
+
+.input-tarefa:focus {
+    width: 80%;
+}
+
+.btn-tarefa {
+    padding: 14px 20px 14px 20px;
+    margin-left: 3px;
+    border-radius: 4px;
+    border: none;
+    background-color: #f8b333;
+    color: black;
+}
