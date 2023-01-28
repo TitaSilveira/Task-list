@@ -1,7 +1,7 @@
 body {
   margin: auto;
   padding: 0;
-  background: #fc4a1a;  /* fallback for old browsers */
+  background: #fc4a1a; 
   background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  
   background: linear-gradient(to right, #f7b733, #fc4a1a);
   font-family: sans-serif;
