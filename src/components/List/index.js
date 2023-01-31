@@ -2,46 +2,55 @@ import React from "react";
 import { TfiMarkerAlt, TfiTrash } from "react-icons/tfi";
 import './List.css';
 
+const TaskList = (props) => {
+    const { tasks, onEdit, onDelete } = props;
 
-const List = (props) => {
-    const { tarefas, handleDelete, handleEdit } = props;
+    const handleDelete = (task) => {
+        let LS = localStorage.getItem('tarefas');
+        if(LS?.length > 0){
+            let tasks = JSON.parse(LS)
+            if(tasks.length > 0){
+                let index = tasks.findIndex(t => {
+                  return t === task
+                })
 
-    
-    return(
+                if(index > -1){
+                    onDelete(index);
+                }else{
+                    alert(`Essa tarefa já não existe mais no cadastro.`);
+                }
+            }else{
+                alert(`Não existem tarefas cadastradas no sistema.`);
+            }
+        }else{
+            alert(`Não existem tarefas cadastradas no sistema.`);
+        }
+    }
+
+    const handleEdit = (task) => {
+        onEdit(task);
+    }
+
+    return (
         <div className="lista">
-            {tarefas.map((el, index) => {
-                return(
-                   <div className="lista-tarefa" key={el}>{el}
-                    <div className="lista-tarefas-icons">
-                        <TfiMarkerAlt 
-                            className="edit"
-                            onClick={(e) => handleEdit(e, index)}
-                        />
-
-                        <TfiTrash
-                            className="delete"
-                            onClick={(e) => handleDelete(e, index)}
-                        />
+            {tasks.map((el, i) => {
+                return (
+                    <div className="lista-tarefa" key={i}>{el}
+                        <div className="lista-tarefas-icons">
+                            <TfiMarkerAlt
+                                className="edit"
+                                onClick={() => handleEdit(el)}
+                            />
+                            <TfiTrash
+                                className="delete"
+                                onClick={() => handleDelete(el)}
+                            />
+                        </div>
                     </div>
-                </div>  
                 )
             })}
         </div>
     )
-    //         { tarefas.map((el, index) => {
-    //             return(
-    //              <div className="card" key={index}>
-    //              <div>
-    //                 <p>{el}</p>
-    //              </div>
-    //              <div>
-    //                 <button><HiOutlinePencil /></button>
-    //                 <button onClick={(e) => handleDelete(e, index)}><HiOutlineTrash /></button>
-    //              </div>
-    //              </div>
-    //             )     
-    //         })} 
-    // );
 }
 
-export default List;
+export default TaskList;
