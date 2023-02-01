@@ -15,7 +15,7 @@
     width: 80%;
 }
 
-.btn-tarefa {
+.btn-tarefa-add, .btn-tarefa-edit {
     padding: 14px 20px 14px 20px;
     margin-left: 3px;
     border-radius: 4px;

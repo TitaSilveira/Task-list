@@ -7,6 +7,7 @@ function App() {
   const[tarefas, setTarefas] = useState([]);
   const[novaTarefa, setNovaTarefa] = useState("");
   const[index, setIndex]  = useState(-1);
+  const[addEdit, setAddEdit] = useState(false)
 
   const onChangeList = (tarefa) => {
 
@@ -22,6 +23,7 @@ function App() {
       setTarefas([...novasTarefas])
       setIndex(-1)
       setNovaTarefa('')
+      setAddEdit(false)
     }
 
     localStorage.setItem('tarefas', JSON.stringify(tarefas))
@@ -36,6 +38,7 @@ function App() {
     e.preventDefault();
     setIndex(index)
     setNovaTarefa(tarefas[index])
+    setAddEdit(true)
   }
 
   const loadTarefas = () => {
@@ -52,7 +55,7 @@ function App() {
   return (
     <div className='container'>
       <h1>O que você planeja para hoje?</h1>
-      <Form onList={onChangeList} setNovaTarefa={setNovaTarefa} novaTarefa={novaTarefa}/>
+      <Form onList={onChangeList} setNovaTarefa={setNovaTarefa} novaTarefa={novaTarefa} addEdit={addEdit}/>
       <List tarefas={tarefas} handleDelete={handleDelete} handleEdit={handleEdit} />
     </div>
   );

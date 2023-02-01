@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { TfiPlus } from "react-icons/tfi";
+import { TfiPlus, TfiMarkerAlt } from "react-icons/tfi";
 import './Form.css';
 
 const Form = (props) => {
     // const[tarefa, setTarefa] = useState("")
-    const{onList, setNovaTarefa, novaTarefa} = props;
+    const{onList, setNovaTarefa, novaTarefa, addEdit} = props;
 
     const changeHandle = (e) => {
         setNovaTarefa(e.target.value)
@@ -24,7 +24,9 @@ const Form = (props) => {
         value={novaTarefa}
         className='input-tarefa'
         ></input>
-        <button className="btn-tarefa"><TfiPlus /></button>
+        {
+            addEdit? <button className="btn-tarefa-edit"> <TfiMarkerAlt /></button> : <button className="btn-tarefa-add"><TfiPlus /></button>
+        }
     </form>
      
     )
